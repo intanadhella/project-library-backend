@@ -1,8 +1,8 @@
-const Library = require('../models/Library')
+const Books = require('../models/Books')
 
 module.exports = ({
     create: (req, res) => {
-        Library.create({
+        Books.create({
             title: req.body.title,
             year: req.body.year,
             number: req.body.number,
@@ -12,17 +12,17 @@ module.exports = ({
         .catch(err => res.json(err))
     },
     getbyId: (req, res) => {
-        Library.findById(req.params.bookId)
+        Books.findById(req.params.bookId)
         .then(result => res.json(result))
         .catch(err => res.json(err))
     },
     getAll: (req, res) => {
-        Library.find({})
+        Books.find({})
         .then(result => res.json(result))
         .catch(err => res.json(err))
     },
     editbyId: (req, res) => {
-        Library.findByIdAndUpdate(req.params.bookId, {
+        Books.findByIdAndUpdate(req.params.bookId, {
             title: req.body.title,
             year: req.body.year,
             number: req.body.number,
@@ -32,7 +32,7 @@ module.exports = ({
         .catch(err => res.json(err))
     },
     deletebyId: (req, res) => {
-        Library.findByIdAndRemove(req.params.bookId)
+        Books.findByIdAndRemove(req.params.bookId)
         .then(result => res.json(result))
         .catch(err => res.json(err))
     }

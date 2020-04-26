@@ -8,8 +8,8 @@ require('dotenv').config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//add library router
-var libraryRouter = require('./routes/library')
+//add books router
+var booksRouter = require('./routes/books')
 
 var app = express();
 //connect to mongodb
@@ -28,6 +28,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //export library router to its URI
-app.use('/library', libraryRouter)
+app.use('/books', booksRouter)
 
 module.exports = app;
